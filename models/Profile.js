@@ -107,4 +107,4 @@ const ProfileSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Profie.mongoose.model("profile", ProfileSchema);
+module.exports = Profile = mongoose.model("profile", ProfileSchema);
