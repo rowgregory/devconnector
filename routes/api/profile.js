@@ -145,11 +145,36 @@ router.get("/", async (req, res) => {
 router.get("/user/:user_id", ProfileController.getUserById);
 
 /**
- * @route     GET api/profile
+ * @route     DELETE api/profile
  * @desc      Delete profile, user, and post
  * @access    Private
  */
 
 router.delete("/", auth, ProfileController.deleteUser);
+
+/**
+ * @route     PUT api/profile/experience
+ * @desc      Add profile experience
+ * @access    Private
+ */
+
+router.put(
+  "/experience",
+  [
+    auth,
+    [
+      check("title", "Title is required")
+        .not()
+        .isEmpty(),
+      check("company", "Company is required")
+        .not()
+        .isEmpty(),
+      check("from", "From date is required")
+        .not()
+        .isEmpty()
+    ]
+  ],
+  ProfileController.addExperience
+);
 
 module.exports = router;
