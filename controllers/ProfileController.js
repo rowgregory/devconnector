@@ -60,8 +60,28 @@ const ProfileController = {
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
-
+      // adds new experience to the beginning
       profile.experience.unshift(newExp);
+
+      await profile.save();
+
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  },
+
+  deleteUserExperience: async (req, res) => {
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      // Get correct experience
+      const removeIndex = profile.experience
+        .map(item => item.id)
+        .indexOf(req.params.exp_id);
+
+      profile.experience.splice(removeIndex, 1);
 
       await profile.save();
 

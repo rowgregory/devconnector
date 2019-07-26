@@ -177,4 +177,16 @@ router.put(
   ProfileController.addExperience
 );
 
+/**
+ * @route     DELETE api/profile/experience/:exp_id
+ * @desc      Delete user experience
+ * @access    Private
+ */
+
+router.delete(
+  "/experience/:exp_id",
+  auth,
+  ProfileController.deleteUserExperience
+);
+
 module.exports = router;
