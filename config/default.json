@@ -1,6 +1,6 @@
 {
   "mongoURI": "mongodb+srv://greg123:greg123@devconnector-juuwh.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "secret",
-  "githubClientId": "6a89cbbdfc6f991f7f0",
-  "githubClientSecret": "c2c3c0ef1f1d08a64a97c5a0550860b68a93cf36"
+  "githubClientId": "process.env.GITHUB_CLIENT_ID",
+  "githubClientSecret": "process.env.GITHUB_CLIENT_SECRET"
 }
