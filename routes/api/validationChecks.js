@@ -52,10 +52,17 @@ const authenticatedUserAndToken = [
   check("password", "Password is required").exists()
 ];
 
+const createdPost = [
+  check("text", "Text is required")
+    .not()
+    .isEmpty()
+];
+
 module.exports = {
   createOrUpdate,
   addedExperience,
   addedEducation,
   registerUser,
-  authenticatedUserAndToken
+  authenticatedUserAndToken,
+  createdPost
 };
