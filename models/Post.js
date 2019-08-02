@@ -30,9 +30,15 @@ const PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "users"
       },
-      test: {
+      text: {
         type: String,
         required: true
+      },
+      name: {
+        type: String
+      },
+      avatar: {
+        type: String
       },
       date: {
         type: Date,
